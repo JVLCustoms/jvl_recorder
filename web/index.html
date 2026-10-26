@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>JVL Recorder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="jvl-steel-blue.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Compact unit (like JVL CarPlay's mini mode): no focus, the game keeps playing -->
+<div id="unidad" class="oculto">
+    <header class="cabeza">
+        <img id="logo" class="oculto" alt="Logo">
+        <b data-t="ui_title"></b>
+        <span class="lente"><i class="fa-solid fa-video"></i></span>
+    </header>
+
+    <div class="visor" id="visor">
+        <span class="rec"><i></i><b id="estado"></b></span>
+        <b class="tiempo" id="tiempo">00:00</b>
+        <span class="aviso" id="aviso"></span>
+    </div>
+
+    <ul class="acciones">
+        <li data-a="record"><kbd id="k-record"></kbd><i class="fa-solid fa-circle"></i><span data-t="ui_record"></span></li>
+        <li data-a="save"><kbd id="k-save"></kbd><i class="fa-solid fa-floppy-disk"></i><span data-t="ui_save"></span></li>
+        <li data-a="discard"><kbd id="k-discard"></kbd><i class="fa-solid fa-trash"></i><span data-t="ui_discard"></span></li>
+        <li data-a="editor"><kbd id="k-editor"></kbd><i class="fa-solid fa-film"></i><span><span data-t="ui_editor"></span> <em data-t="ui_editor_hint"></em></span></li>
+    </ul>
+
+    <p class="nota" id="nota"><i class="fa-solid fa-circle-info"></i><span data-t="ui_note"></span></p>
+
+    <footer class="pie">
+        <span id="version"></span>
+        <span class="firma">&lt;/&gt; <b>JVL MediaCode</b></span>
+    </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

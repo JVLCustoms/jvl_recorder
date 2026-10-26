@@ -1,0 +1,69 @@
+/* JVL Recorder - Steel Blue base as a small camera unit (JVL CarPlay mini mode look).
+   Signature: the camera viewfinder with corner marks and the REC light. */
+:root {
+    --rec: #ef4444;
+    --jvl-texto-3: #8495ab; /* muted labels: lighter than the master #64748b so small text passes AA */
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100vw; height: 100vh; overflow: hidden; background: transparent; font-family: var(--jvl-fuente); color: var(--jvl-texto); user-select: none; pointer-events: none; }
+.oculto { display: none !important; }
+
+@keyframes entrar { from { opacity: 0; transform: translateY(12px) scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes rec { 50% { opacity: 0.25; } }
+@keyframes destello { from { opacity: 1; } to { opacity: 0; } }
+
+#unidad {
+    position: absolute; width: 270px; display: flex; flex-direction: column; gap: 10px; padding: 12px;
+    border-radius: 24px; background: rgba(7, 9, 12, 0.62); border: 2px solid rgba(148, 197, 233, 0.18);
+    box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.9); animation: entrar 0.22s ease-out;
+}
+#unidad.bottom-right { right: 2.5vw; bottom: 6vh; }
+#unidad.bottom-left { left: 2.5vw; bottom: 6vh; }
+#unidad.top-right { right: 2.5vw; top: 6vh; }
+#unidad.top-left { left: 2.5vw; top: 6vh; }
+
+/* Header: logo without a box (JVL standard) */
+.cabeza { display: flex; align-items: center; gap: 10px; }
+.cabeza img { height: 34px; max-width: 110px; object-fit: contain; }
+.cabeza b { font-size: 14px; font-weight: 600; }
+.lente { margin-left: auto; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 9px; font-size: 13px; color: var(--jvl-hielo); background: rgba(14, 165, 233, 0.12); }
+
+/* Viewfinder with corner marks */
+.visor {
+    position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 16px 10px 14px;
+    border-radius: 16px; background: linear-gradient(180deg, rgba(8, 17, 29, 0.85), rgba(5, 11, 20, 0.85)); overflow: hidden;
+}
+.visor::before, .visor::after { content: ''; position: absolute; inset: 8px; pointer-events: none;
+    background:
+        linear-gradient(var(--jvl-texto-2), var(--jvl-texto-2)) top left / 14px 2px no-repeat,
+        linear-gradient(var(--jvl-texto-2), var(--jvl-texto-2)) top left / 2px 14px no-repeat,
+        linear-gradient(var(--jvl-texto-2), var(--jvl-texto-2)) top right / 14px 2px no-repeat,
+        linear-gradient(var(--jvl-texto-2), var(--jvl-texto-2)) top right / 2px 14px no-repeat;
+    opacity: 0.6; }
+.visor::after { transform: scaleY(-1); }
+.rec { display: flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--jvl-texto-2); }
+.rec i { width: 10px; height: 10px; border-radius: 50%; background: var(--jvl-texto-3); }
+.visor.grabando .rec { color: #fca5a5; }
+.visor.grabando .rec i { background: var(--rec); animation: rec 1s ease-in-out infinite; }
+.tiempo { font-size: 38px; line-height: 1; font-weight: 700; font-variant-numeric: tabular-nums; }
+.aviso { position: absolute; inset: 0; display: grid; place-items: center; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0; }
+.aviso.save { color: var(--jvl-ok); background: rgba(5, 46, 22, 0.85); animation: destello 1.6s ease-in forwards; }
+.aviso.discard { color: var(--jvl-error); background: rgba(69, 10, 10, 0.85); animation: destello 1.6s ease-in forwards; }
+
+/* Key rows */
+.acciones { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.acciones li { display: grid; grid-template-columns: 30px 18px 1fr; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 11px; font-size: 12.5px; background: rgba(17, 26, 38, 0.6); }
+.acciones kbd { height: 24px; display: grid; place-items: center; border-radius: 7px; font-family: inherit; font-size: 12px; font-weight: 700; background: rgba(148, 197, 233, 0.12); border: 2px solid rgba(148, 197, 233, 0.24); }
+.acciones li > i { text-align: center; font-size: 12px; color: var(--jvl-cian); }
+.acciones li[data-a="record"] > i { color: var(--rec); }
+.acciones li[data-a="save"] > i { color: var(--jvl-ok); }
+.acciones li[data-a="discard"] > i { color: var(--jvl-texto-2); }
+.acciones em { font-style: normal; font-size: 10.5px; color: var(--jvl-aviso); }
+.visor.grabando ~ .acciones li[data-a="record"] { opacity: 0.4; }
+
+.pie { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--jvl-texto-3); }
+.firma b { font-weight: 500; color: var(--jvl-hielo); }
+
+/* Note about editing clips (FiveM may crash opening the editor from a server) */
+.nota { display: grid; grid-template-columns: 14px 1fr; gap: 8px; padding: 8px 10px; border-radius: 11px; font-size: 11px; line-height: 1.4; color: var(--jvl-texto-2); background: rgba(251, 191, 36, 0.08); border: 2px solid rgba(251, 191, 36, 0.25); }
+.nota i { margin-top: 2px; color: var(--jvl-aviso); }
