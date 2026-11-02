@@ -4,7 +4,7 @@
 
 <br>
 
-![Version](https://img.shields.io/badge/version-2.0.0-2f8cf0?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-2.0.1-2f8cf0?style=for-the-badge)
 ![Status](https://img.shields.io/badge/status-in%20production-22c55e?style=for-the-badge)
 
 ![FiveM](https://img.shields.io/badge/FiveM-Qbox%20·%20QB%20·%20ESX%20·%20Standalone-F40552?style=flat-square&logo=fivem&logoColor=white)
@@ -13,7 +13,7 @@
 ![Dependencies](https://img.shields.io/badge/dependencies-none-22c55e?style=flat-square)
 
 **Rockstar Editor clips without leaving the server.**
-`/recorder` opens a small panel that does not take your mouse: record, save or discard clips with one key while you keep playing.
+`/grabar` opens a small panel that does not take your mouse: record, save or discard clips with one key while you keep playing.
 
 [Features](#-features) · [Installation](#-installation) · [Configuration](#-configuration) · [Editing your clips](#-editing-your-clips) · [License](#-license)
 
@@ -65,7 +65,7 @@ Optional: `oxmysql` (database log, turn it off with `Config.Log.database = false
 
 | Option | What it does |
 |---|---|
-| `Config.Command` | Command that opens / closes the panel (`recorder`) |
+| `Config.Command` | Command that opens / closes the panel (`grabar`) |
 | `Config.Keys` | Default keys: panel, record, save, discard, editor (`''` = no default) |
 | `Config.KeysOnlyWithPanel` | `true` = the keys only work while the panel is open |
 | `Config.EditorButton` | Show the "open editor" key in the panel (press twice, it disconnects you) |

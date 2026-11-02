@@ -18,11 +18,11 @@ Config.Branding = {
     LogoUrl = 'https://r2.fivemanage.com/X1XK135fBbC6NDyRj5dwS/logomediacode.png', -- '' = icon
 }
 
-Config.Command = 'recorder' -- opens / closes the panel
+Config.Command = 'grabar' -- opens / closes the panel (was 'recorder': old ESX installs kept an F7 bind to it)
 
 -- Keys (players can change them in Settings > Key Bindings > FiveM). '' = no default key.
 Config.Keys = {
-    panel   = '',   -- open / close the panel (besides /recorder)
+    panel   = '',   -- open / close the panel (besides /grabar)
     record  = '7',  -- start recording
     save    = '8',  -- stop and save the clip
     discard = '9',  -- stop and throw the clip away

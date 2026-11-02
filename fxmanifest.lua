@@ -5,7 +5,7 @@ lua54 'yes'
 name 'jvl_recorder'
 author 'JVL MediaCode'
 description 'JVL Recorder - Rockstar Editor clips from the server: record, save, discard, open the editor (Qbox, QBCore, ESX, standalone)'
-version '2.0.0'
+version '2.0.1'
 
 -- Runtime: oxmysql (only with Config.Log.database). Optional: jvl_notify. No fxmanifest dependencies.
 shared_scripts {
